@@ -8,7 +8,7 @@ export default class AppContainer extends Component {
   	isAuthenticating: PropTypes.bool.isRequired,
   }
   static defaultProps = {
-  	isAuthenticating: true,
+  	isAuthenticating: false,
   }
   render() {
     return (
