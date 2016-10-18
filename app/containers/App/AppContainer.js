@@ -1,14 +1,12 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react'
+import { connect } from 'react-redux'
 import { Text, View } from 'react-native'
 import { ReactModoroNavigator } from '~/containers'
 import { PreSplash } from '~/components'
 
-export default class AppContainer extends Component {
+class AppContainer extends Component {
   static propTypes = {
   	isAuthenticating: PropTypes.bool.isRequired,
-  }
-  static defaultProps = {
-  	isAuthenticating: false,
   }
   render() {
     return (
@@ -21,3 +19,12 @@ export default class AppContainer extends Component {
     );
   }
 }
+
+function mapStateToProps({ authentication }) {
+  const { isAuthenticating } = authentication
+  return {
+    isAuthenticating,
+  }
+}
+
+export default connect(mapStateToProps)(AppContainer)
